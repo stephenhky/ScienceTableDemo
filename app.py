@@ -19,20 +19,18 @@ def compute_sentence_similarity(text1, text2):
 
 
 async def compute_similarity_vs_onedoc(text, docpath):
-    item = json.loads(docpath)
+    item = json.load(open(docpath, 'r'))
     similarity = compute_sentence_similarity(text, item['text'])
     resultitem = {'filename': os.path.basename(docpath), 'title': item['title'], 'similarity': similarity}
     return resultitem
 
 
-async def getting_result_table(text):
+async def getting_result_items(text):
     resultitems = await asyncio.gather(*[
-        compute_sentence_similarity(text, docpath)
+        compute_similarity_vs_onedoc(text, docpath)
         for docpath in glob(os.path.join('data', 's*.json'))
     ])
-    df = pd.DataFrame.from_records(resultitems)
-    df = df.sort_values(by='similarity', ascending=False)
-    return df
+    return resultitems
 
 
 
@@ -42,5 +40,7 @@ st.write('Disclaimer: This is a demonstration. The models used are of public dom
 demotext = 'NIH funds a lot of great science projects.'
 text = st.text_area('Document', demotext)
 
-df = asyncio.run(getting_result_table(text))
+resultitems = asyncio.run(getting_result_items(text))
+df = pd.DataFrame.from_records(resultitems)
+df = df.sort_values(by='similarity', ascending=False)
 st.dataframe(df)
