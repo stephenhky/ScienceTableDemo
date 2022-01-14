@@ -21,26 +21,35 @@ def compute_sentence_similarity(text1, text2):
 async def compute_similarity_vs_onedoc(text, docpath):
     item = json.load(open(docpath, 'r'))
     similarity = compute_sentence_similarity(text, item['text'])
-    resultitem = {'filename': os.path.basename(docpath), 'title': item['title'], 'similarity': similarity}
+    resultitem = {'filename': os.path.basename(docpath), 'title': item['title'], 'similarity': similarity, 'text': item['text']}
     return resultitem
 
 
-async def getting_result_items(text):
+async def getting_result_df(text):
     resultitems = await asyncio.gather(*[
         compute_similarity_vs_onedoc(text, docpath)
         for docpath in glob(os.path.join('data', 's*.json'))
     ])
-    return resultitems
+    df = pd.DataFrame.from_records(resultitems)
+    df = df.sort_values(by='similarity', ascending=False)
+    return df
 
 
+st.header('Science Similarity Detection')
+col1, col2 = st.columns((2, 1))
+col1.text('Goal: Automate the process of identifying and withdrawing duplicated or overlapping grant applications.')
+col1.text('Achievement and Impact:')
+col1.text('- Reduces ~95% of the workload.')
+col1.text('- Oricesses 18k-23k~ gratn applications bi-monthly.')
+col1.text('- Manually verified 99.9% accuracy.')
+col1.text('- Picks up similar sciences missed by human review.')
+col2.image('histscisim.png')
 
-st.text('Science Similarity')
+st.header('Demonstration')
 st.write('Disclaimer: This is a demonstration. The models used are of public domain, and are not trained with any private or sensitive data such as PII or PHI.')
 
 demotext = 'NIH funds a lot of great science projects.'
 text = st.text_area('Document', demotext)
 
-resultitems = asyncio.run(getting_result_items(text))
-df = pd.DataFrame.from_records(resultitems)
-df = df.sort_values(by='similarity', ascending=False)
+df = asyncio.run(getting_result_df(text))
 st.dataframe(df)
