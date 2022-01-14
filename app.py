@@ -34,7 +34,7 @@ async def getting_result_df(text):
     df = df.sort_values(by='similarity', ascending=False)
     return df
 
-
+# Presentation details
 st.header('Science Similarity Detection')
 col1, col2 = st.columns((2, 1))
 col1.text('Goal: Automate the process of identifying and withdrawing duplicated or overlapping grant applications.')
@@ -45,6 +45,7 @@ col1.text('- Manually verified 99.9% accuracy.')
 col1.text('- Picks up similar sciences missed by human review.')
 col2.image('histscisim.png')
 
+# demonstration
 st.header('Demonstration')
 st.write('Disclaimer: This is a demonstration. The models used are of public domain, and are not trained with any private or sensitive data such as PII or PHI.')
 
