@@ -37,12 +37,12 @@ async def getting_result_df(text):
 # Presentation details
 st.header('Science Similarity Detection')
 col1, col2 = st.columns((2, 1))
-col1.text('Goal: Automate the process of identifying and withdrawing duplicated or overlapping grant applications.')
-col1.text('Achievement and Impact:')
-col1.text('- Reduces ~95% of the workload.')
-col1.text('- Processes 18k-23k~ grant applications bi-monthly.')
-col1.text('- Manually verified 99.9% accuracy.')
-col1.text('- Picks up similar sciences missed by human review.')
+col1.write('Goal: Automate the process of identifying and withdrawing duplicated or overlapping grant applications.')
+col1.write('Achievement and Impact:')
+col1.write('- Reduces ~95% of the workload.')
+col1.write('- Processes 18k-23k~ grant applications bi-monthly.')
+col1.write('- Manually verified 99.9% accuracy.')
+col1.write('- Picks up similar sciences missed by human review.')
 col2.image('histscisim.png')
 
 # demonstration
