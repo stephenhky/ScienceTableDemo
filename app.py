@@ -49,17 +49,16 @@ col2.image('histscisim.png')
 st.header('Demonstration')
 st.write('Disclaimer: This is a demonstration. The models used are of public domain, and are not trained with any private or sensitive data such as PII or PHI.')
 
-demotext = """
-Understanding flow and transport of bacteria in porous media is crucial to technologies such as bioremediation, 
-biomineralization or enhanced oil recovery. 
-low and transport experiments performed in microfluidic chips containing randomly 
+demotext = """Understanding flow and transport of bacteria in porous media is crucial to technologies such as bioremediation, 
+biomineralization or enhanced oil recovery. Low and transport experiments performed in microfluidic chips containing randomly 
 placed obstacles confirmed that the distributions of non-motile particles stays compact, 
 whereas for the motile strains, the distributions are characterized by both significant retention 
 as well as fast downstream motion. 
 For motile bacteria, the detailed microscopic study of individual bacteria trajectories 
-reveals two salient features: (i) the emergence of an active retention process triggered by motility, 
-(ii) enhancement of dispersion due to the exchange between fast flow channels and low flow regions 
-in the vicinity of the solid grains. We propose a physical model based on a continuous time random walk approach. 
+reveals two salient features, namely, the emergence of an active retention process triggered by motility, 
+and enhancement of dispersion due to the exchange between fast flow channels and low flow regions 
+in the vicinity of the solid grains. 
+We propose a physical model based on a continuous time random walk approach. 
 """
 text = st.text_area('Document', demotext)
 if st.button('Find Similar Researches!'):
