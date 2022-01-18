@@ -51,6 +51,6 @@ st.write('Disclaimer: This is a demonstration. The models used are of public dom
 
 demotext = 'NIH funds a lot of great science projects.'
 text = st.text_area('Document', demotext)
-
-df = asyncio.run(getting_result_df(text))
-st.dataframe(df)
+if st.button('Find Similar Researches!'):
+    df = asyncio.run(getting_result_df(text))
+    st.dataframe(df[:10])
