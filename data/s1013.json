@@ -1,4 +1,0 @@
-{
-  "title": "Binary response model with many weak instruments",
-  "text": "This paper considers an endogenous binary response model with many weak instruments. We in the current paper employ a control function approach and a regularization scheme to obtain better estimation results for the endogenous binary response model in the presence of many weak instruments. Two consistent and asymptotically normally distributed estimators are provided, each of which is called a regularized conditional maximum likelihood estimator (RCMLE) and a regularized nonlinear least square estimator (RNLSE) respectively. Monte Carlo simulations show that the proposed estimators outperform the existing estimators when many weak instruments are present. We apply our estimation method to study the effect of family income on college completion."
-}
