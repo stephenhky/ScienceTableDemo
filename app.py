@@ -9,6 +9,10 @@ import requests
 import pandas as pd
 
 
+# wide screen
+st.set_page_config(layout="wide")
+
+
 def compute_sentence_similarity(text1, text2):
     url = "https://y6wrl4j6v7.execute-api.us-east-1.amazonaws.com/default/SentenceSimilarity"
     payload = json.dumps({'text1': text1, 'text2': text2})
