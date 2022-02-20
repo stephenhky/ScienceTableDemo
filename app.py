@@ -40,14 +40,6 @@ async def getting_result_df(text):
 
 # Presentation details
 st.header('Science Similarity Detection')
-col1, col2 = st.columns((2, 1))
-col1.markdown('Goal: Automate the process of identifying and withdrawing duplicated or overlapping grant applications.')
-col1.markdown('Achievement and Impact:')
-col1.markdown('- Reduces ~95% of the workload.')
-col1.markdown('- Processes 18k-23k~ grant applications bi-monthly.')
-col1.markdown('- Manually verified 99.9% accuracy.')
-col1.markdown('- Picks up similar sciences missed by human review.')
-col2.image('histscisim.png')
 
 # demonstration
 st.header('Demonstration')
