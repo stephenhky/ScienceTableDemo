@@ -35,6 +35,7 @@ async def getting_result_df(text):
         for docpath in glob(os.path.join('data', 's*.json'))
     ])
     df = pd.DataFrame.from_records(resultitems)
+    df['distance'] = 1 - df['similarity']
     df = df.sort_values(by='similarity', ascending=False)
     return df
 
