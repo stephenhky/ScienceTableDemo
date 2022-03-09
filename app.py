@@ -42,6 +42,8 @@ async def getting_result_df(text):
 # Presentation details
 st.header('Science Similarity Detection')
 
+st.image('histscisim.png')
+
 # demonstration
 st.header('Demonstration')
 st.write('Disclaimer: This is a demonstration. The models used are of public domain, and are not trained with any private or sensitive data such as PII or PHI.')
