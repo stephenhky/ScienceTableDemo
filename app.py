@@ -39,12 +39,15 @@ async def getting_result_df(text):
     df = df.sort_values(by='similarity', ascending=False)
     return df
 
+
 # Presentation details
 st.header('Science Similarity Detection')
+
 
 # demonstration
 st.header('Demonstration')
 st.write('Disclaimer: This is a demonstration. The models used are of public domain, and are not trained with any private or sensitive data such as PII or PHI.')
+
 
 demotext = """Understanding flow and transport of bacteria in porous media is crucial to technologies such as bioremediation, 
 biomineralization or enhanced oil recovery. Low and transport experiments performed in microfluidic chips containing randomly 
