@@ -14,7 +14,7 @@ st.set_page_config(layout="wide")
 
 
 def compute_sentence_similarity(text1, text2):
-    url = "https://y6wrl4j6v7.execute-api.us-east-1.amazonaws.com/default/SentenceSimilarity"
+    url = " https://s0odfmo598.execute-api.us-east-1.amazonaws.com/default/sentence-similarity-lambda"
     payload = json.dumps({'text1': text1, 'text2': text2})
     headers = {'Content-Type': 'application/json'}
     response = requests.request('GET', url, headers=headers, data=payload)
